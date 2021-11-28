@@ -1,3 +1,4 @@
+import 'package:choocinema/screens/sheetPage.dart';
 import 'package:flutter/material.dart';
 import './screens/mainpage.dart';
 import 'package:provider/provider.dart';
@@ -13,6 +14,7 @@ var loginFormApp = ChangeNotifierProvider(
 
 const String ROOT_PAGE = '/';
 const String MAIN_PAGE = '/main';
+const String SHEAT_PAGE = '/main/';
 
 class choocinema extends StatelessWidget {
   @override
@@ -23,7 +25,8 @@ class choocinema extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         ROOT_PAGE: (context) => LoginPage(),
-        MAIN_PAGE: (context) => MainPage()
+        MAIN_PAGE: (context) => MainPage(),
+        SHEAT_PAGE: (context) => SheetPage()
       },
       theme: new ThemeData(primarySwatch: Colors.deepPurple),
     );

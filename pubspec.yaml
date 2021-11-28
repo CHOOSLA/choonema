@@ -32,6 +32,8 @@ dependencies:
   dio: ^4.0.0-beta4
   flutter_swiper : ^1.1.6
   provider: ^4.0.2
+  sliding_up_panel: ^2.0.0+1
+  intl: ^0.16.1
 
 dev_dependencies:
   flutter_test:
