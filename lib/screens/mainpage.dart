@@ -58,6 +58,10 @@ class _MainPageState extends State<MainPage> {
 
   String cinemaType = "";
 
+  void refesh() {
+    setState(() {});
+  }
+
   //영화 갯수 불러오기
   getRows() async {
     int rows;
@@ -227,7 +231,7 @@ class _MainPageState extends State<MainPage> {
                 tooltip: 'Account Inform',
                 onPressed: () =>
                     {Navigator.pushNamed(context, RESULT_PAGE)}, //계정정보로 빠짐
-              )
+              ),
             ],
           ),
         ),

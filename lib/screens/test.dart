@@ -149,12 +149,6 @@ class LoginPageState extends State<LoginPage> {
                           SizedBox(
                             height: 10.0,
                           ),
-                          Text(
-                            '비밀번호 찾기',
-                            style: TextStyle(
-                              color: Global.megabox,
-                            ),
-                          ),
                         ],
                       ),
                       SizedBox(
