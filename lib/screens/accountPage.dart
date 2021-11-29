@@ -24,10 +24,31 @@ class AccountPageState extends State<AccountPage> {
 
   String id;
   String password;
+  String username;
   String phone;
   String card;
 
-  _onCreate() {}
+  _onCreate() async {
+    setState(() {});
+    Dio dio = new Dio();
+
+    var formData = FormData.fromMap(
+      {
+        "id": id,
+        "password": password,
+        'username': username,
+        'phone': phone,
+        'card': card
+      },
+    );
+    try {
+      var responseWithDio =
+          await dio.post('${Env.URL_PREFIX}/createaccount.php', data: formData);
+    } catch (e) {
+      print(e);
+    }
+    Navigator.pop(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -100,6 +121,18 @@ class AccountPageState extends State<AccountPage> {
                                 : Icons.visibility_off,
                             onChanged: (value) {
                               password = value;
+                            },
+                          ),
+                          SizedBox(
+                            height: 10.0,
+                          ),
+                          TextFieldWidget(
+                            hintText: '이름',
+                            obscureText: false,
+                            prefixIconData: Icons.phone_android_outlined,
+                            //suffixIconData: model.isValid ? Icons.check : null,
+                            onChanged: (value) {
+                              username = value;
                             },
                           ),
                           SizedBox(

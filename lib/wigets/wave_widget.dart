@@ -41,7 +41,7 @@ class _WaveWidgetState extends State<WaveWidget> with TickerProviderStateMixin {
               wavePoints.add(
                 Offset(
                   i.toDouble(), //X
-                  widget.yOffset, //Y
+                  calc * waveHeight * normalizer + widget.yOffset, //Y
                 ),
               );
             }

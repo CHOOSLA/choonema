@@ -225,7 +225,8 @@ class _MainPageState extends State<MainPage> {
               new IconButton(
                 icon: new Icon(Icons.account_circle_outlined),
                 tooltip: 'Account Inform',
-                onPressed: () => {print('test')}, //계정정보로 빠짐
+                onPressed: () =>
+                    {Navigator.pushNamed(context, RESULT_PAGE)}, //계정정보로 빠짐
               )
             ],
           ),
@@ -544,8 +545,8 @@ class _MainPageState extends State<MainPage> {
                                   overflow: TextOverflow.ellipsis,
                                 ),
                                 Text(
-                                    schedules != null
-                                        ? "가격 : " + schedules[selectedMovie].fee
+                                    schedules != null && schedules.length != 0
+                                        ? "가격 : " + schedules[toggledIndex].fee
                                         : "",
                                     style: TextStyle(
                                         color: Colors.white,

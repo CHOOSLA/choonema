@@ -2,16 +2,15 @@
 header('Content-Type-type: application/json');
 include 'db.php';
 
-$cinemaNumber = $_GET['cinemaNumber'];
-$rowNumber = $_GET['row'];
-$colNumber = $_GET['col'];
-$ab =$_GET['ab'];
-$time =$_GET['time'];
+$id = $_POST['id'];
+$password = $_POST['password'];
+$username = $_POST['username'];
+$phone = $_POST['phone'];
+$card =$_POST['card'];
 
 
-echo $time;
 
-$result = mysqli_query($db,"INSERT INTO cinemaSeat VALUES ('$cinemaNumber','$rowNumber','$colNumber','$ab','$time');");
+$result = mysqli_query($db,"INSERT INTO user VALUES ('$id',SHA2('$password',256),'$username','$phone','SILVER','$card');");
 
 mysqli_close($db);
 

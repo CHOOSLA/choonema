@@ -32,7 +32,7 @@ class choocinema extends StatelessWidget {
         ACCOUNT_PAGE: (context) => AccountPage(),
         MAIN_PAGE: (context) => MainPage(),
         SHEAT_PAGE: (context) => SheetPage(),
-        RESULT_PAGE: (context) => ResultPage()
+        RESULT_PAGE: (context) => ResultPage(),
       },
       theme: new ThemeData(primarySwatch: Colors.deepPurple),
     );
