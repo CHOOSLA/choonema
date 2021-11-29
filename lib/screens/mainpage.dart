@@ -132,8 +132,7 @@ class _MainPageState extends State<MainPage> {
     DateTime add = new DateTime(now.year, now.month, now.day + toggledIndex,
         now.hour, now.minute, now.second);
     String daySave = (now.day + toggledIndex).toString();
-    state.setMovieTime(add.toString());
-
+    //state.setMovieTime(add.toString());
     var responseWithDio = await dio.get(
         '${Env.URL_PREFIX}/getschedule.php?movieNumber=' +
             state.movienum +
@@ -158,7 +157,10 @@ class _MainPageState extends State<MainPage> {
   choiceSeat(int index) {
     print('좌석선태그올..');
     final UserState state = Provider.of<UserState>(context, listen: false);
+    //state.setMovieTime(schedules[index].time);
+    state.setCinemaNum(schedules[index].cinemaNumber);
     state.setMovieTime(schedules[index].time);
+    state.setFee(schedules[index].fee);
     _pc.close();
     Navigator.pushNamed(context, SHEAT_PAGE);
   }
@@ -424,15 +426,21 @@ class _MainPageState extends State<MainPage> {
                                                           SizedBox(
                                                             width: 10,
                                                           ),
-                                                          Text(
-                                                            '🎭 ' +
-                                                                movies[index]
-                                                                    .leadActor +
-                                                                ' 주연',
-                                                            style: TextStyle(
-                                                                fontSize: 15,
-                                                                color: Colors
-                                                                    .grey),
+                                                          Container(
+                                                            width: 110,
+                                                            child: Text(
+                                                              '🎭 ' +
+                                                                  movies[index]
+                                                                      .leadActor +
+                                                                  ' 주연',
+                                                              style: TextStyle(
+                                                                  fontSize: 15,
+                                                                  color: Colors
+                                                                      .grey),
+                                                              overflow:
+                                                                  TextOverflow
+                                                                      .ellipsis,
+                                                            ),
                                                           ),
                                                         ],
                                                       ),
@@ -535,7 +543,10 @@ class _MainPageState extends State<MainPage> {
                                       fontSize: 40),
                                   overflow: TextOverflow.ellipsis,
                                 ),
-                                Text(movies[selectedMovie].movieDir + ' 감독',
+                                Text(
+                                    schedules != null
+                                        ? "가격 : " + schedules[selectedMovie].fee
+                                        : "",
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.w600,

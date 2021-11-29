@@ -28,7 +28,7 @@ class LoginPageState extends State<LoginPage> {
     Navigator.pushNamed(context, MAIN_PAGE);
   }
 
-  void _onCancel() => exit(0);
+  void _onAccount() => Navigator.pushNamed(context, ACCOUNT_PAGE);
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +74,7 @@ class LoginPageState extends State<LoginPage> {
                     RaisedButton(
                       key: Key('sign'),
                       child: Text('회원가입'),
-                      onPressed: _onCancel,
+                      onPressed: _onAccount,
                     ),
                   ],
                 ),

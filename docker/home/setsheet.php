@@ -2,16 +2,16 @@
 header('Content-Type-type: application/json');
 include 'db.php';
 
+$cinemaNumber = $_GET['cinemaNumber'];
+$rowNumber = $_GET['row'];
+$colNumber = $_GET['col'];
+$ab =$_GET['ab'];
+$time =$_GET['time'];
 
-$result = mysqli_query($db,"INSERT INTO cinemaNumber ($,$,$);");
 
+echo $time;
 
-$result_array = array();
-
-while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-    $result_array[] = $row;
-}
-echo json_encode($result_array);
+$result = mysqli_query($db,"INSERT INTO cinemaSeat VALUES ('$cinemaNumber','$rowNumber','$colNumber','$ab','$time');");
 
 mysqli_close($db);
 

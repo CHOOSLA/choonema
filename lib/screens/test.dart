@@ -71,6 +71,8 @@ class LoginPageState extends State<LoginPage> {
     }
   }
 
+  void _onAccount() => Navigator.pushNamed(context, ACCOUNT_PAGE);
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -169,6 +171,7 @@ class LoginPageState extends State<LoginPage> {
                       ButtonWidget(
                         title: '회원가입',
                         hasBorder: true,
+                        onPressed: _onAccount,
                       ),
                     ],
                   ),
